@@ -4,11 +4,11 @@ function parseQuery(query) {
 
     if (match) {
         const [, fields, table, whereString] = match;
-        const whereClauses = whereString ? parseWhereClause(whereString) : [];
+        const whereClause = whereString ? parseWhereClause(whereString) : [];
         return {
             fields: fields.split(',').map(field => field.trim()),
             table: table.trim(),
-            whereClauses
+           whereClause
         };
     } else {
         throw new Error('Invalid query format');
